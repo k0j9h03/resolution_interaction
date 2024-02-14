@@ -75,7 +75,7 @@
 
     ctx.drawImage(tempCanvas, 0, 0, scaledWidth, scaledHeight, imgX, imgY, size, size);
     alertAlarm(scaledWidth);
-}
+    }
     //초기 그리기
     img.onload = function() {
         draw(); 
@@ -83,4 +83,4 @@
 
     window.onload = function() {
     alert("마우스를 좌우로 움직여보세요!");
-};
+    };
