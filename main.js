@@ -10,7 +10,7 @@
 
     let mouseX = 0, mouseY = 0;
     let imgX = 0, imgY = 0; 
-    let lerpAmount = 0.15; // Lerp  (0~ 1)
+    let lerpAmount = 0.2; // Lerp  (0~ 1)
     let alertImg = new Image(); // 경고 이미지 로드
     alertImg.src = 'alert.png'; // 경고 이미지의 경로를 설정하세요.
 
@@ -36,15 +36,13 @@
 
     function alertAlarm(scaledWidth){
         if(scaledWidth <= 15){
-            const imgOffsetX = -40; // 이미지를 마우스 우측에 위치시킬 X 오프셋
-            const imgPositionX = mouseX + imgOffsetX; // 이미지의 X 위치
-            const imgPositionY = mouseY - alertImg.height / 2; // 마우스 Y 위치에서 이미지의 높이 절반을 빼서 세로 중앙에 위치시킴
+            const imgOffsetX = -40; 
+            const imgPositionX = mouseX + imgOffsetX; 
+            const imgPositionY = mouseY - alertImg.height / 2; 
     
-            // 이미지가 로드되었는지 확인하고, 준비된 이미지를 마우스 포인터 오른쪽에 그립니다.
             if(alertImg.complete){
                 ctx.drawImage(alertImg, imgPositionX, imgPositionY);
             } else {
-                // 이미지가 아직 로드되지 않았다면, 로드 완료 후 그리기 위해 이벤트 리스너를 추가합니다.
                 alertImg.onload = function() {
                     ctx.drawImage(alertImg, imgPositionX, imgPositionY);
                 };
